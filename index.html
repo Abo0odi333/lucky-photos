@@ -1,0 +1,45 @@
+<style>
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        color: white;
+        text-decoration: none;
+        font-style: none;
+        font-size: 100px;
+        border-radius: 15px;
+        height: 150px;
+        width: 800px;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-image: url("https://media.cnn.com/api/v1/images/stellar/prod/160107100400-monkey-selfie.jpg?q=w_2912,h_1638,x_0,y_0,c_fill");
+    }
+</style>
+<body>
+    <a href="#" class="btn" onclick="showRandom()">اضغط لمعرفة نعم او لا</a>
+</body>
+<script>
+    function showRandom(){
+        const images = [
+            "https://ae01.alicdn.com/kf/H49bf599288674cec85668228e1faec7bS.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQahrbjS5e5FqtI56EIqrYHyP-SBYqe4__wA&s"
+        ];
+
+        const random = images[Math.floor(Math.random() * images.length)];
+
+        // نسوي عنصر IMG ونحطه بالصفحة
+        const img = document.createElement("img");
+        img.src = random;
+        img.style.width = "500px";
+
+        document.body.innerHTML = ""; // يشيل المحتوى
+        document.body.appendChild(img); // يحط الصورة
+    }
+</script>
