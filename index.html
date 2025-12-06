@@ -1,4 +1,8 @@
 <style>
+    *{
+        justify-content: center;
+        align-items: center;
+    }
     body{
         display: flex;
         justify-content: center;
@@ -26,6 +30,7 @@
     <a href="#" class="btn" onclick="showRandom()">اضغط لمعرفة نعم او لا</a>
 </body>
 <script>
+    const originalContent = document.body.innerHTML;
     function showRandom(){
         const images = [
             "https://ae01.alicdn.com/kf/H49bf599288674cec85668228e1faec7bS.jpg",
@@ -33,13 +38,35 @@
         ];
 
         const random = images[Math.floor(Math.random() * images.length)];
-
         // نسوي عنصر IMG ونحطه بالصفحة
         const img = document.createElement("img");
+        const retry = document.createElement("a")
+        retry.href = "#";
+        retry.textContent = "retry";
+        retry.style.textDecoration = "none";
+        retry.style.color = "white";
+        retry.style.background = "black";
+        retry.style.borderRadius = "15px";
+        retry.style.width = "800px";
+        retry.style.height = "100px";
+        retry.style.display = "flex";
+        retry.style.justifyContent = "center";
+        retry.style.alignItems = "center";
+        retry.style.fontSize = "100px";
+        retry.style.position = "absolute";
+        retry.style.bottom = "1";
+        retry.style.marginBottom = "50px" ;
+        retry.onclick = restart;
         img.src = random;
         img.style.width = "500px";
+        img.style.margin = "0 auto";
 
         document.body.innerHTML = ""; // يشيل المحتوى
         document.body.appendChild(img); // يحط الصورة
+        document.body.appendChild(retry);
+        
+    }
+    function restart(){
+        document.body.innerHTML = originalContent;
     }
 </script>
